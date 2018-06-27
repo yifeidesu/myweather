@@ -1,5 +1,5 @@
 {
-  "name": "angular-tour-of-heroes",
+  "name": "myweather",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
@@ -22,6 +22,7 @@
     "@angular/router": "^6.0.3",
     "core-js": "^2.5.4",
     "rxjs": "^6.0.0",
+    "uuid": "^3.3.0",
     "zone.js": "^0.8.26"
   },
   "devDependencies": {

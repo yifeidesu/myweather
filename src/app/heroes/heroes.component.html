@@ -1,0 +1,47 @@
+<h2>MyWeather</h2>
+
+<!-- <div>
+  <label>City name:
+    <input #cityName />
+  </label>
+  <! (click) passes input value to add() and then clears the input -->
+<!-- <button (click)="add(cityName.value); cityName.value=''">
+    add
+  </button>
+</div> -->
+
+<ul class="weathers">
+  <!-- <li *ngFor="let weather of weathers">
+    <a routerLink="/detail/{{weather.main.name}}">
+      <span class="badge">{{weather.name}}</span> {{weather.main.temp}} F {{weather.weather.main}}
+    </a>
+    <button class="delete" title="delete weather" (click)="delete(weather)">x</button>
+  </li> -->
+
+  <div class="container">
+    <div class="row">
+      <div class="card cell col-lg-3 text-center" style="width: 18rem;" *ngFor="let weather of weathers">
+          <div class="card-body" routerLink="/detail/{{getCityId(weather)}}">
+            <h5 class="card-title">{{weather.name}}</h5>
+            <h6>{{getFormattedDate(weather.dt)}}</h6>
+            <i class="fas fa-umbrella"></i>
+            <h6>{{getWeatherDesc(weather)}}</h6>
+            <div class="row temps">
+              <div class="col-lg-4">
+                <span>{{weather.main.temp_min}}</span>&#176;
+                <br/>Min</div>
+              <div class="col-lg-4">
+                <span>{{weather.main.temp}}</span>&#176;
+                <br/>Now</div>
+              <div class="col-lg-4">
+                <span>{{weather.main.temp_max}}</span>&#176;
+                <br/>Max</div>
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>
+
+
+
+</ul>
