@@ -36,7 +36,7 @@ export class WeatherService {
         tap(res => {
           console.log(res.main.temp);
 
-          this.log(`fetched hero` + res.main.temp)
+          this.log(`fetched hero` + res.main.temp);
         }),
         catchError(this.handleError('getHeroes', []))
       );
@@ -58,7 +58,7 @@ export class WeatherService {
 
   /** GET hero by id. Will 404 if id not found */
   getWeatherForecast(id: number): Observable<any> {
-    //const url = `${this.weatherUrl}/${id}`;
+    // const url = `${this.weatherUrl}/${id}`;
     const url = this.getWeatherForecastUrl();
     return this.http.get<any>(url).pipe(
       tap(res => this.log(`===id=${id} \n forecast=${res}`)),
@@ -129,3 +129,4 @@ export class WeatherService {
     this.messageService.add('HeroService: ' + message);
   }
 }
+

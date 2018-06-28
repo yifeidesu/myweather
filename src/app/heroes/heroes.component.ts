@@ -28,7 +28,7 @@ export class HeroesComponent implements OnInit {
   getWeathers(): void {
 
     this.cities.forEach((cityObj) => {
-      let city = cityObj.name;
+      const city = cityObj.name;
       this.weatherService.getWeatherForList(city)
         .subscribe(weather => {
           this.weathers.push(weather);

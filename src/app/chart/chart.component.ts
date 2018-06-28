@@ -6,11 +6,14 @@ import * as Chart from 'chart.js';
   templateUrl: './chart.component.html',
   styleUrls: ['./chart.component.css']
 })
-export class ChartComponent implements OnInit {
+export class ChartComponent implements OnInit, AfterViewInit {
   //@Input() hero: Hero;
   @Input('times') times = [];
   @Input('temps') temps = [];
   @Input('humidity') humidity = [];
+
+  canvas: any;
+  ctx: any;
 
   constructor() { }
 
@@ -20,8 +23,7 @@ export class ChartComponent implements OnInit {
     console.log(this.temps);
   }
 
-  canvas: any;
-  ctx: any;
+
 
   ngAfterViewInit() {
     this.canvas = document.getElementById('myChart');

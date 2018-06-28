@@ -8,7 +8,7 @@ import { Hero } from './hero';
 })
 
 export class AppComponent implements OnInit {
-  //title = 'tour of heros';
+// title = 'tour of heros';
   
 
   hero: Hero = {

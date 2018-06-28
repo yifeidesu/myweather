@@ -23,7 +23,7 @@ h1 {
     background-color: transparent;
   }
   nav a:visited, a:link {
-    /* color: rgba(96, 125, 139, 0.5); */
+    color: rgba(96, 125, 139, 0.5);
   }
   nav a:hover {
     color: #039be5;
