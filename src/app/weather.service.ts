@@ -12,40 +12,20 @@ const httpOptions = {
 };
 
 @Injectable({ providedIn: 'root' })
-export class HeroService {
+export class WeatherService {
 
   // todo move to env var
   private APIKEY = '41fe05d915b9210f85a5c3b82ee96bf1';
 
-  // temperal
-  cities = ['toronto', 'vancouver'];
-  //private heroesUrl = 'api/heroes';  // URL to web api
-  //private weatherUrl = 'https://api.openweathermap.org/data/2.5/weather?apikey=' + this.APIKEY + '&q=' + this.city;
-
   getWeatherUrl(city: String): string {
-    return 'https://api.openweathermap.org/data/2.5/weather?apikey='
+    return 'https://api.openweathermap.org/data/2.5/weather?units=metric&apikey='
       + this.APIKEY + '&q='
-      + city
-      + '&units=metric';
+      + city;
   }
 
   constructor(
     private http: HttpClient,
     private messageService: MessageService) { }
-
-
-  // getWeathers(): Observable<any> {
-  //   let weathers = [];
-   
-  //   return this.http.get<any>(this.weatherUrl)
-  //     .pipe(
-  //       tap(res => {
-  //         console.log(res.main.temp);
-  //         this.log(`fetched hero` + res.main.temp)
-  //       }),
-  //       catchError(this.handleError('getHeroes', []))
-  //     );
-  // }
 
   getWeatherForList(city: String): Observable<any> {
     let url = this.getWeatherUrl(city);
@@ -108,27 +88,19 @@ export class HeroService {
   /** POST: add a new hero to the server */
   // addHero(hero: Hero): Observable<Hero> {
   //   return this.http.post<Hero>(this.weatherUrl, hero, httpOptions).pipe(
-  //     tap((hero: Hero) => this.log(`added hero w/ id=${hero.id}`)),
+  //     tap((hero: Hero) => this.log(`added hero w/ id=${weather.id}`)),
   //     catchError(this.handleError<Hero>('addHero'))
   //   );
   // }
 
-  // /** DELETE: delete the hero from the server */
+  /** DELETE: delete the hero from the city array */
   // deleteHero(hero: Hero | number): Observable<Hero> {
-  //   const id = typeof hero === 'number' ? hero : hero.id;
+  //   const id = typeof hero === 'number' ? hero : weather.id;
   //   const url = `${this.weatherUrl}/${id}`;
 
   //   return this.http.delete<Hero>(url, httpOptions).pipe(
   //     tap(_ => this.log(`deleted hero id=${id}`)),
   //     catchError(this.handleError<Hero>('deleteHero'))
-  //   );
-  // }
-
-  /** PUT: update the hero on the server */
-  // updateHero(hero: Hero): Observable<any> {
-  //   return this.http.put(this.weatherUrl, hero, httpOptions).pipe(
-  //     tap(_ => this.log(`updated hero id=${hero.id}`)),
-  //     catchError(this.handleError<any>('updateHero'))
   //   );
   // }
 

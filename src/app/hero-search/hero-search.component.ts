@@ -7,7 +7,7 @@ import {
  } from 'rxjs/operators';
 
 import { Hero } from '../hero';
-import { HeroService } from '../hero.service';
+import { WeatherService } from '../weather.service';
 
 @Component({
   selector: 'app-hero-search',
@@ -18,7 +18,7 @@ export class HeroSearchComponent implements OnInit {
   heroes$: Observable<string[]>;
   private searchTerms = new Subject<string>();
 
-  constructor(private heroService: HeroService) {}
+  constructor(private heroService: WeatherService) {}
 
   // Push a search term into the observable stream.
   search(term: string): void {

@@ -1,11 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 
-//import { string } from '../hero';
-import { HeroService } from '../hero.service';
+import { WeatherService } from '../weather.service';
 import { v4 as uuid } from 'uuid';
 import { stringify } from 'querystring';
-
-
+import { cities, getWeatherEmojiCode } from '../cities';
 
 @Component({
   selector: 'app-heroes',
@@ -13,19 +11,10 @@ import { stringify } from 'querystring';
   styleUrls: ['./heroes.component.css']
 })
 export class HeroesComponent implements OnInit {
-
+  cities = cities;
   weathers = [];
 
-  //seeds
-  cityObjs = [
-    { id: 1, name: 'vancouver' },
-    { id: 2, name: 'ottawa' },
-    { id: 3, name: 'hamilton' },
-    { id: 4, name: 'london,ca' },
-    { id: 5, name: 'kingston' },
-    { id: 6, name: 'windsor' }];
-
-  constructor(private heroService: HeroService) { }
+  constructor(private weatherService: WeatherService) { }
 
   ngOnInit() {
     this.getWeathers();
@@ -38,9 +27,9 @@ export class HeroesComponent implements OnInit {
 
   getWeathers(): void {
 
-    this.cityObjs.forEach((cityObj) => {
+    this.cities.forEach((cityObj) => {
       let city = cityObj.name;
-      this.heroService.getWeatherForList(city)
+      this.weatherService.getWeatherForList(city)
         .subscribe(weather => {
           this.weathers.push(weather);
           console.log(this.weathers);
@@ -54,8 +43,8 @@ export class HeroesComponent implements OnInit {
 
     // add to citiarray 
     let newCity = { id: uuid(), name: name }
-    this.cityObjs.push(newCity);
-    console.log(this.cityObjs);
+    this.cities.push(newCity);
+    console.log(this.cities);
 
 
     // todo add city
@@ -66,9 +55,9 @@ export class HeroesComponent implements OnInit {
   }
 
   delete(weather: any): void {
-    this.cityObjs = this.cityObjs.filter(city => city.name != weather.main.name);
+    this.cities = this.cities.filter(city => city.name != weather.main.name);
     //this.heroService.deleteCity(city).subscribe();
-    console.log(this.cityObjs);
+    console.log(this.cities);
   }
 
   getFormattedDate(UNIX_Timestamp): String {
@@ -91,7 +80,11 @@ export class HeroesComponent implements OnInit {
   // to make up detail page url
   getCityId(weatherRes): String {
     let nameResp = weatherRes.name.toLowerCase();
-    const res = this.cityObjs.filter(city => city.name.includes(nameResp));
+    const res = this.cities.filter(city => city.name.includes(nameResp));
     if (res && res[0]) { return res[0].id.toString(); } else { return '' }
+  }
+
+  getWeatherEmojiCode(desc: string): any {
+    return getWeatherEmojiCode(desc);  
   }
 }

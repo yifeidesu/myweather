@@ -1,4 +1,4 @@
-# MyWeather
+# MyWeather (Ongoing project)
 
 [Visit page!](https://yifeidesu.github.io/myweather/)
 
