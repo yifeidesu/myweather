@@ -24,7 +24,8 @@
           <div class="card-body" routerLink="/detail/{{getCityId(weather)}}">
             <h5 class="card-title">{{weather.name}}</h5>
             <h6>{{getFormattedDate(weather.dt)}}</h6>
-            <i class="fas fa-umbrella"></i>
+            <!-- <i class="fas fa-umbrella"></i> -->
+            <span class="weather-img">&#9748;</span>
             <h6>{{getWeatherDesc(weather)}}</h6>
             <div class="row temps">
               <div class="col-lg-4">

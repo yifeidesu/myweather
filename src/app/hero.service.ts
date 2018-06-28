@@ -77,18 +77,18 @@ export class HeroService {
   }
 
   /** GET hero by id. Will 404 if id not found */
-  getWeather(id: number): Observable<any> {
+  getWeatherForecast(id: number): Observable<any> {
     //const url = `${this.weatherUrl}/${id}`;
-    const url = this.getWeatherDetailUrl();
+    const url = this.getWeatherForecastUrl();
     return this.http.get<any>(url).pipe(
-      tap(res => this.log(`fetched hero id=${id} ${res}`)),
+      tap(res => this.log(`===id=${id} \n forecast=${res}`)),
       catchError(this.handleError<any>(`getHero id=${id}`))
     );
   }
 
   // id to name, name put in url
-  getWeatherDetailUrl(): string {
-    return 'https://api.openweathermap.org/data/2.5/forecast?q=toronto&apikey=' + this.APIKEY;
+  getWeatherForecastUrl(): string {
+    return 'https://api.openweathermap.org/data/2.5/forecast?q=toronto&units=metric&apikey=' + this.APIKEY;
   }
 
   /* GET heroes whose name contains search term */

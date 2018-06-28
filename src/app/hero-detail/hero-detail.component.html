@@ -1,4 +1,4 @@
-<div *ngIf="hero">
+<!-- <div *ngIf="hero">
   <h2>{{ hero.name | uppercase }} Details</h2>
   <div>
     <span>id: </span>{{hero.id}}</div>
@@ -9,11 +9,14 @@
   </div>
   <button (click)="goBack()">go back</button>
   <button (click)="save()">save</button>
-</div>
+</div> -->
 
+<h1>detail comp!</h1>
 
 <div *ngIf="weather">
-  <h1>{{weather.name}}</h1>
+  <h1>my weather!!!!</h1>
+  <app-chart [times]="times" [temps]="temps" [humidity]="humidity"></app-chart>
+  <h1>{{weather.city.name}}</h1>
     <h2>{{ weather.name | uppercase }} weather Details</h2>
     <div>
       <span>id: </span>{{weather.id}}</div>
