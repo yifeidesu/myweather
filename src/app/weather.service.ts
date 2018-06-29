@@ -1,11 +1,10 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-
 import { Observable, of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
-
 import { Hero } from './hero';
 import { MessageService } from './message.service';
+import { getCityName } from '../app/cities';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -58,8 +57,8 @@ export class WeatherService {
 
   /** GET hero by id. Will 404 if id not found */
   getWeatherForecast(id: number): Observable<any> {
-    // const url = `${this.weatherUrl}/${id}`;
-    const url = this.getWeatherForecastUrl();
+
+    const url = this.getWeatherForecastUrl(id);
     return this.http.get<any>(url).pipe(
       tap(res => this.log(`===id=${id} \n forecast=${res}`)),
       catchError(this.handleError<any>(`getHero id=${id}`))
@@ -67,8 +66,12 @@ export class WeatherService {
   }
 
   // id to name, name put in url
-  getWeatherForecastUrl(): string {
-    return 'https://api.openweathermap.org/data/2.5/forecast?q=toronto&units=metric&apikey=' + this.APIKEY;
+  getWeatherForecastUrl(id): string {
+    const city = getCityName(id);
+    return 'https://api.openweathermap.org/data/2.5/forecast?units=metric&q='
+      + city
+      + '&apikey='
+      + this.APIKEY;
   }
 
   /* GET heroes whose name contains search term */

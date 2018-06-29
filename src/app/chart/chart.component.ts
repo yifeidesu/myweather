@@ -7,7 +7,6 @@ import * as Chart from 'chart.js';
   styleUrls: ['./chart.component.css']
 })
 export class ChartComponent implements OnInit, AfterViewInit {
-  //@Input() hero: Hero;
   @Input('times') times = [];
   @Input('temps') temps = [];
   @Input('humidity') humidity = [];
@@ -18,11 +17,11 @@ export class ChartComponent implements OnInit, AfterViewInit {
   constructor() { }
 
   ngOnInit() {
-    console.log("child chart");
-    console.log(this.times);
-    console.log(this.temps);
+    /** todo remove */
+    // console.log("child chart");
+    // console.log(this.times);
+    // console.log(this.temps);
   }
-
 
 
   ngAfterViewInit() {
@@ -47,7 +46,7 @@ export class ChartComponent implements OnInit, AfterViewInit {
         {
           label: 'Humidity',
           yAxisID: 'humi',
-          data: this.humidity, // temp changing, y values 
+          data: this.humidity, // humidity changing, y values 
           backgroundColor: [
             'rgba(0, 99, 132, 0.1)'
           ],
@@ -59,62 +58,33 @@ export class ChartComponent implements OnInit, AfterViewInit {
       },
       options: {
         responsive: false,
+        tooltips: {
+          backgroundColor: 'blue'
+        },
         scales: {
           yAxes: [{
             id: 'temp',
             type: 'linear',
             position: 'left',
+            scaleLabel: {
+              display: true,
+              labelString: 'Temp'
+            }
           }, {
             id: 'humi',
             type: 'linear',
             position: 'right',
+            scaleLabel: {
+              display: true,
+              labelString: 'Humidity'
+            },
             ticks: {
               max: 100,
               min: 0
             }
           }]
         }
-        // display:true
       }
     });
-
-    // let myChart = new Chart(this.ctx, {
-    //   type: 'line',
-    //   data: {
-    //     labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
-    //     datasets: [{
-    //       label: '# of Votes',
-    //       data: [12, 19, 3, 5, 2, 3],
-    //       backgroundColor: [
-    //         'rgba(255, 99, 132, 0.2)',
-    //         'rgba(54, 162, 235, 0.2)',
-    //         'rgba(255, 206, 86, 0.2)',
-    //         'rgba(75, 192, 192, 0.2)',
-    //         'rgba(153, 102, 255, 0.2)',
-    //         'rgba(255, 159, 64, 0.2)'
-    //       ],
-    //       borderColor: [
-    //         'rgba(255,99,132,1)',
-    //         'rgba(54, 162, 235, 1)',
-    //         'rgba(255, 206, 86, 1)',
-    //         'rgba(75, 192, 192, 1)',
-    //         'rgba(153, 102, 255, 1)',
-    //         'rgba(255, 159, 64, 1)'
-    //       ],
-    //       borderWidth: 1
-    //     }]
-    //   },
-    //   options: {
-    //     scales: {
-    //       yAxes: [{
-    //         ticks: {
-    //           beginAtZero: true
-    //         }
-    //       }]
-    //     }
-    //   }
-    // });
-
   }
-
 }

@@ -34,6 +34,8 @@ export class HeroDetailComponent implements OnInit {
   getWeather(): void {
     // get id from path param
     const id = +this.route.snapshot.paramMap.get('id');
+    console.log('detail route id = ' + id);
+    
 
     // subscribe observable with id
     // todo change to get weather forecast
@@ -48,9 +50,6 @@ export class HeroDetailComponent implements OnInit {
           this.humidity.push(element.main.humidity);
 
         });
-        console.log(this.times);
-        console.log(this.temps);
-
       }
       );
   }

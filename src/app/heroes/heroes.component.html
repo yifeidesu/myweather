@@ -1,3 +1,4 @@
+
 <ul class="weathers">
   <div class="container">
     <div class="row">
@@ -6,7 +7,6 @@
           <div class="card-body" routerLink="/detail/{{getCityId(weather)}}">
             <h5 class="card-title wt-600">{{weather.name}}</h5>
             <h6>{{getFormattedDate(weather.dt)}}</h6>
-            <!-- <span class="weather-img">&#9889;</span> -->
             <span class="weather-img" [innerHTML]="getWeatherEmojiCode(weather.weather[0].main)"></span>
             <h6>{{getWeatherDesc(weather)}}</h6>
             <div class="row temps">
@@ -25,3 +25,18 @@
     </div>
   </div>
 </ul>
+
+<!-- <div>
+    <div id="locationField">
+        <input id="autocomplete" placeholder="Enter your address" onFocus="geolocate()" type="text" />
+      </div>
+  
+      <table id="address"> 
+          <td class="label">City</td>
+          <td class="wideField" colspan="3"><input class="field" id="locality"
+                disabled="true" /></td>
+      </table>
+</div> -->
+
+<!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBuKUXPfazCgPzZo5IxPXd5eROvvIDqUzc&libraries=places&callback=initAutocomplete"
+        async defer></script> -->

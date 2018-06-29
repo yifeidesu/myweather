@@ -12,7 +12,7 @@ let cities =
 
 function getWeatherEmojiCode(desc: string): any {
     desc = desc.toLowerCase();
-    
+
     switch (desc) {
         case 'rain': { return '<i class="fas fa-umbrella"><i>'; }
         case 'clear': { return '<i class="fas fa-umbrella-beach"><i>'; }
@@ -26,4 +26,15 @@ function getWeatherEmojiCode(desc: string): any {
     }
 }
 
-export { cities, getWeatherEmojiCode };
+function getCityName(id: number): string {
+    const city = cities.filter(city => city.id == id);
+    console.log(city[0].name);
+    
+    if (city[0]) {
+        return city[0].name;
+    } else {
+        return 'toronto';
+    }
+}
+
+export { cities, getWeatherEmojiCode, getCityName };

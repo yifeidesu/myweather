@@ -4,6 +4,7 @@ import { WeatherService } from '../weather.service';
 import { v4 as uuid } from 'uuid';
 import { stringify } from 'querystring';
 import { cities, getWeatherEmojiCode } from '../cities';
+import { env } from '../../environments/environment';
 
 @Component({
   selector: 'app-heroes',
@@ -13,11 +14,14 @@ import { cities, getWeatherEmojiCode } from '../cities';
 export class HeroesComponent implements OnInit {
   cities = cities;
   weathers = [];
+  MAP_KEY:string = env.MAP_KEY; 
 
   constructor(private weatherService: WeatherService) { }
 
   ngOnInit() {
     this.getWeathers();
+
+    
   }
 
   // getHeroes(): void {
@@ -86,5 +90,9 @@ export class HeroesComponent implements OnInit {
 
   getWeatherEmojiCode(desc: string): any {
     return getWeatherEmojiCode(desc);  
+  }
+
+  initAutocomplete(){
+    alert('hello');
   }
 }
