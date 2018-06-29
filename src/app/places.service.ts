@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
-import { env } from '../environments/environment';
+import { environment } from '../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PlacesService {
-  MAP_KEY = env.MAP_KEY;
+  MAP_KEY = environment.MAP_KEY;
 
   constructor() { }
 

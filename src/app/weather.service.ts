@@ -5,6 +5,7 @@ import { catchError, map, tap } from 'rxjs/operators';
 import { Hero } from './hero';
 import { MessageService } from './message.service';
 import { getCityName } from '../app/cities';
+import { environment } from '../environments/environment';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -13,12 +14,11 @@ const httpOptions = {
 @Injectable({ providedIn: 'root' })
 export class WeatherService {
 
-  // todo move to env var
-  private APIKEY = '41fe05d915b9210f85a5c3b82ee96bf1';
+  private WEATHER_API_KEY = environment.WEATHER_KEY;
 
   getWeatherUrl(city: String): string {
     return 'https://api.openweathermap.org/data/2.5/weather?units=metric&apikey='
-      + this.APIKEY + '&q='
+      + this.WEATHER_API_KEY + '&q='
       + city;
   }
 
@@ -71,7 +71,7 @@ export class WeatherService {
     return 'https://api.openweathermap.org/data/2.5/forecast?units=metric&q='
       + city
       + '&apikey='
-      + this.APIKEY;
+      + this.WEATHER_API_KEY;
   }
 
   /* GET heroes whose name contains search term */
