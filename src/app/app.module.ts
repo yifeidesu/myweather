@@ -7,10 +7,9 @@ import { HttpClientModule } from '@angular/common/http';
 // import { InMemoryDataService }  from './in-memory-data.service';
 
 import { AppRoutingModule } from './app-routing.module';
-
 import { AppComponent } from './app.component';
-import { HeroDetailComponent } from './hero-detail/hero-detail.component';
-import { HeroesComponent } from './heroes/heroes.component';
+import { CityDetailComponent } from './city-detail/city-detail.component';
+import { CitiesComponent } from './cities/cities.component';
 import { ChartComponent } from './chart/chart.component';
 
 @NgModule({
@@ -29,8 +28,8 @@ import { ChartComponent } from './chart/chart.component';
   ],
   declarations: [
     AppComponent,
-    HeroesComponent,
-    HeroDetailComponent,
+    CitiesComponent,
+    CityDetailComponent,
     ChartComponent
   ],
   bootstrap: [AppComponent]

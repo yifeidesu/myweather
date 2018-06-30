@@ -2,7 +2,7 @@
 let cities =
     [
         { id: 0, name: 'toronto' },
-        { id: 1, name: 'vancouver' },
+        { id: 1, name: 'guelph' },
         { id: 2, name: 'ottawa' },
         { id: 3, name: 'hamilton' },
         { id: 4, name: 'london,ca' },

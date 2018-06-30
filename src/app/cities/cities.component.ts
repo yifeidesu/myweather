@@ -8,10 +8,10 @@ import { environment } from '../../environments/environment';
 
 @Component({
   selector: 'app-heroes',
-  templateUrl: './heroes.component.html',
-  styleUrls: ['./heroes.component.css']
+  templateUrl: './cities.component.html',
+  styleUrls: ['./cities.component.css']
 })
-export class HeroesComponent implements OnInit {
+export class CitiesComponent implements OnInit {
   cities = cities;
   weathers = [];
   MAP_KEY:string = environment.MAP_KEY; 

@@ -9,14 +9,12 @@ import { getDay, formatTime } from '../dateUtils';
 
 
 @Component({
-  selector: 'app-hero-detail',
-  templateUrl: './hero-detail.component.html',
-  styleUrls: ['./hero-detail.component.css']
+  selector: 'app-city-detail',
+  templateUrl: './city-detail.component.html',
+  styleUrls: ['./city-detail.component.css']
 })
-export class HeroDetailComponent implements OnInit {
-  @Input() hero: string;
+export class CityDetailComponent implements OnInit {
   @Input() weather: string;
-
 
   times = [];
   temps = [];

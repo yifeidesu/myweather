@@ -1,12 +1,13 @@
 # MyWeather (Ongoing)
 
+## [:zap: Visit Site :zap:](https://yifeidesu.github.io/myweather/)
+
 ## Description
-Forecast web application. One page display a list of cities with current weather information. Click on any city item, will navigate to a page showing 5-day/3-hour forecast informatin.
+Forecast web application. One page display a list of cities with current weather information. Click on any city item, will navigate to a page showing 5-day/3-hour forecast information.
 
 ## Stack
 Angular, RxJS, TypeScript, HTML5, CSS3, JSON, Bootstrap, Chart.js
 
-## [:zap: Visit Site :zap:](https://yifeidesu.github.io/myweather/)
 
 ![weatherapp-detail](https://user-images.githubusercontent.com/23082500/42122229-8baab560-7c0c-11e8-8898-431324162fa8.png)
 

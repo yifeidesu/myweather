@@ -4,7 +4,7 @@
     <div class="row">
       <div class="card cell col-lg-3 text-center" style="width: 18rem;" 
       *ngFor="let weather of weathers">
-          <div class="card-body" routerLink="/detail/{{getCityId(weather)}}">
+          <div class="card-body" routerLink="/cities/{{getCityId(weather)}}">
             <h5 class="card-title wt-600">{{weather.name}}</h5>
             <h6>{{getFormattedDate(weather.dt)}}</h6>
             <span class="weather-img" [innerHTML]="getWeatherImageHtml(weather.weather[0].main)"></span>
