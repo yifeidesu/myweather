@@ -1,6 +1,6 @@
 # MyWeather (Ongoing project)
 
-[Visit page!](https://yifeidesu.github.io/myweather/)
+[Visit Site :zap:](https://yifeidesu.github.io/myweather/)
 
 ![weatherapp-detail](https://user-images.githubusercontent.com/23082500/42122229-8baab560-7c0c-11e8-8898-431324162fa8.png)
 
