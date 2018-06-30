@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { WeatherService } from '../weather.service';
 import { v4 as uuid } from 'uuid';
 import { stringify } from 'querystring';
-import { cities, getWeatherEmojiCode } from '../cities';
+import { cities, getWeatherImageHtml } from '../cities';
 import { environment } from '../../environments/environment';
 
 @Component({
@@ -21,11 +21,7 @@ export class HeroesComponent implements OnInit {
   ngOnInit() {
     this.getWeathers();
   }
-
-  // getHeroes(): void {
-  //   this.heroService.getHeroes()
-  //   .subscribe(heroes => this.heroes = heroes);
-  // }
+  
 
   getWeathers(): void {
 
@@ -86,8 +82,8 @@ export class HeroesComponent implements OnInit {
     if (res && res[0]) { return res[0].id.toString(); } else { return '' }
   }
 
-  getWeatherEmojiCode(desc: string): any {
-    return getWeatherEmojiCode(desc);  
+  getWeatherImageHtml(desc: string): any {
+    return getWeatherImageHtml(desc);  
   }
 
   initAutocomplete(){

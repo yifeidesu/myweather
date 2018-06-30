@@ -10,7 +10,7 @@ let cities =
         { id: 6, name: 'windsor' }
     ];
 
-function getWeatherEmojiCode(desc: string): any {
+function getWeatherImageHtml(desc: string): any {
     desc = desc.toLowerCase();
 
     switch (desc) {
@@ -37,4 +37,4 @@ function getCityName(id: number): string {
     }
 }
 
-export { cities, getWeatherEmojiCode, getCityName };
+export { cities, getWeatherImageHtml, getCityName };

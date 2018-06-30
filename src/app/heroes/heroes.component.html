@@ -1,5 +1,5 @@
 
-<ul class="weathers">
+<ul class="weathers bg-1">
   <div class="container">
     <div class="row">
       <div class="card cell col-lg-3 text-center" style="width: 18rem;" 
@@ -7,7 +7,7 @@
           <div class="card-body" routerLink="/detail/{{getCityId(weather)}}">
             <h5 class="card-title wt-600">{{weather.name}}</h5>
             <h6>{{getFormattedDate(weather.dt)}}</h6>
-            <span class="weather-img" [innerHTML]="getWeatherEmojiCode(weather.weather[0].main)"></span>
+            <span class="weather-img" [innerHTML]="getWeatherImageHtml(weather.weather[0].main)"></span>
             <h6>{{getWeatherDesc(weather)}}</h6>
             <div class="row temps">
               <div class="col-lg-4">

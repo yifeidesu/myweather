@@ -1,4 +1,36 @@
 <div class="container" *ngIf="weather">
-  <h1>{{weather.city.name}}</h1>
+  <div class="row">
+    <div class="col">
+      <h1>{{weather.city.name}}, ON</h1>
+      <p>date</p>
+      <p>clear</p>
+    </div>
+    <div class="col">
+      <div>
+        <p>Precipitation</p>
+        <p>humidity</p>
+        <p>Wind</p>
+      </div>
+      <div class="btn-group" role="group" aria-label="Basic example">
+        <button type="button" class="btn btn-secondary">Precipitation</button>
+        <button type="button" class="btn btn-secondary">Temperature</button>
+        <button type="button" class="btn btn-secondary">Wind</button>
+      </div>
+    </div>
+  </div>
+
   <app-chart [times]="times" [temps]="temps" [humidity]="humidity"></app-chart>
+  <div class="row">
+    <div class="col-2" *ngFor="let el of dayDataArray">
+      <!-- <h5>{{el.dtTxt.slice(5,10)}}</h5> -->
+      <h5>{{el.dayName}}</h5>
+      <h5>{{el.desc}}</h5>
+      <span [innerHTML]="getWeatherImageHtml(el.desc)"></span>
+      <p>
+        <span>{{el.tempMax}}&#176;</span>
+        <span>&#160;</span>
+        <span>{{el.tempMin}}&#176;</span>
+      </p>
+    </div>
+  </div>
 </div>

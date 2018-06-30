@@ -59,6 +59,8 @@ export class WeatherService {
   getWeatherForecast(id: number): Observable<any> {
 
     const url = this.getWeatherForecastUrl(id);
+    console.log(url);
+    
     return this.http.get<any>(url).pipe(
       tap(res => this.log(`===id=${id} \n forecast=${res}`)),
       catchError(this.handleError<any>(`getHero id=${id}`))

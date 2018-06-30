@@ -41,7 +41,8 @@ export class ChartComponent implements OnInit, AfterViewInit {
           ],
           borderColor: 'rgba(255, 99, 132, 1)',
           borderWidth: 2,
-          pointRadius: 0.5
+          pointRadius: 2,
+          
         },
         {
           label: 'Humidity',
@@ -58,8 +59,17 @@ export class ChartComponent implements OnInit, AfterViewInit {
       },
       options: {
         responsive: false,
+        
         tooltips: {
-          backgroundColor: 'blue'
+          
+          bodyFontColor:'black',
+          backgroundColor: 'aliceblue',
+          borderColor:'blue',
+          callbacks: {
+            title: function() {
+              return '';
+            }
+          }
         },
         scales: {
           yAxes: [{
