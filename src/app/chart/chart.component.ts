@@ -42,7 +42,7 @@ export class ChartComponent implements OnInit, AfterViewInit {
           borderColor: 'rgba(255, 99, 132, 1)',
           borderWidth: 2,
           pointRadius: 2,
-          
+
         },
         {
           label: 'Humidity',
@@ -59,19 +59,26 @@ export class ChartComponent implements OnInit, AfterViewInit {
       },
       options: {
         responsive: false,
-        
+
         tooltips: {
-          
-          bodyFontColor:'black',
+          bodyFontColor: 'black',
           backgroundColor: 'aliceblue',
-          borderColor:'blue',
+          borderColor: 'blue',
           callbacks: {
-            title: function() {
+            title: function () {
               return '';
             }
           }
         },
         scales: {
+          xAxes: [{
+            type: 'time',
+            time: {
+              displayFormats: {
+                quarter: 'hA'
+              }
+            }
+          }],
           yAxes: [{
             id: 'temp',
             type: 'linear',

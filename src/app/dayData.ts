@@ -1,3 +1,5 @@
+import { getDay } from './dateUtils';
+
 export class DayData {
     dtTxt = '';
     desc = '';
@@ -14,10 +16,7 @@ export class DayData {
     }
 
     getDay(dt): string {
-        const days = ['Mon.', 'Tue.', 'Wed.', 'Thu.', 'Fri.', 'Sat.', 'Sun.'];
-        const date = new Date(dt);
-
-        return days[date.getDay()]; 
+        return getDay(dt);
     }
 }
 
