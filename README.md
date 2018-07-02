@@ -12,4 +12,5 @@ Angular, RxJS, TypeScript, HTML5, CSS3, JSON, Bootstrap, Chart.js
 ![weatherapp-detail-w](https://user-images.githubusercontent.com/23082500/42147091-18dbf032-7d9a-11e8-910f-5f94ca2442c8.png)
 ![weatherapp-detai-t](https://user-images.githubusercontent.com/23082500/42147092-18e9eda4-7d9a-11e8-9aa8-d8f6e24cfbe1.png)
 
-![weatherapp-list](https://user-images.githubusercontent.com/23082500/42075055-12b4c8b4-7b3d-11e8-8f4e-6d95ab2cb7ba.png)
+![weatherapp-list](https://user-images.githubusercontent.com/23082500/42147198-9ca94a72-7d9a-11e8-903a-d55b53eacd3e.png)
+
