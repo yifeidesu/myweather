@@ -1,0 +1,11 @@
+.btn-group {
+    padding: 1em 4em;
+}
+
+.btn:hover {
+    background-color: rgba(127, 255, 212, 0.2);
+}
+
+.btn.active {
+    background-color: aquamarine;
+}

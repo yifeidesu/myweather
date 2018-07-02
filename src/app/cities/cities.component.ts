@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { WeatherService } from '../weather.service';
 import { v4 as uuid } from 'uuid';
 import { stringify } from 'querystring';
-import { cities, getWeatherImageHtml } from '../cities';
+import { cities, getWeatherEmoji } from '../cities';
 import { environment } from '../../environments/environment';
 
 @Component({
@@ -83,7 +83,7 @@ export class CitiesComponent implements OnInit {
   }
 
   getWeatherImageHtml(desc: string): any {
-    return getWeatherImageHtml(desc);  
+    return getWeatherEmoji(desc);  
   }
 
   initAutocomplete(){

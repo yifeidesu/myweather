@@ -1,3 +1,29 @@
 .container {
     padding: 2em;
 }
+
+.weather-img {
+    font-size: 2em;
+}
+
+div h2 span {
+    font-size: 2em;
+}
+
+#temp {
+    line-height: 1!important;
+    padding-top: 0;
+    padding: 0;
+    font-size: 4em;
+    color: rgba(96, 125, 139, 1);
+}
+
+#col-right {
+    float: bottom;
+    padding-right: 6em;
+}
+
+
+
+
+

@@ -1,32 +1,40 @@
 <div class="container" *ngIf="weather">
-  <h1>{{weather.city.name}}, ON</h1>
-  <div class="row">
-    <div class="col">
-      <h5>{{datetime}}</h5>
-      <h5>{{weather.list[0].weather[0].main}}</h5>
-      <h2>{{weather.list[0].main.temp}}&#176;C</h2>
+
+  <div id="above-chart" class="row">
+    <div class="col-lg-3">
+
+      <h4>{{weather.city.name}}, ON</h4>
+      <h6>{{datetime}}</h6>
+      <h6>{{weather.list[0].weather[0].main}}</h6>
+
     </div>
-    <div class="col">
-      <div>
-        <h6>Pressure: {{weather.list[0].main.pressure}} Pa
-          <br/>Humidity: {{weather.list[0].main.humidity}}%
-          <br/>Wind: {{weather.list[0].wind.speed}} km/h</h6>
-      </div>
-      <div class="btn-group" role="group" aria-label="Basic example">
-        <button type="button" class="btn">Temperature</button>
-        <button type="button" class="btn">Humidity</button>
-        <button type="button" class="btn">Wind</button>
-      </div>
+    <div class="col-lg-5 float-left">
+      <p id="temp">{{weather.list[0].main.temp}}&#176;C
+        <span [innerHTML]="getWeatherImageHtml(weather.list[0].weather[0].description)"></span>
+      </p>
+    </div>
+
+    <div id="col-right" class="col-lg-4 text-right d-flex align-items-end justify-content-end">
+
+      <h5 class="">Pressure: {{weather.list[0].main.pressure}} Pa
+        <br/>Humidity: {{weather.list[0].main.humidity}}%
+        <br/>Wind: {{weather.list[0].wind.speed}} km/h</h5>
+
+      <!-- <div class="btn-group" role="group" aria-label="Basic example">
+          <button type="button" class="btn">Temperature</button>
+          <button type="button" class="btn">Humidity</button>
+          <button type="button" class="btn">Wind</button>
+        </div> -->
+
+
     </div>
   </div>
 
-  <app-chart [times]="times" [temps]="temps" [humidity]="humidity"></app-chart>
+  <app-chart [times]="times" [temps]="temps" [humidities]="humidities" [winds]="winds" [windsDegree]="windsDegree"></app-chart>
   <div class="row container">
     <div class="col-2" *ngFor="let el of dayDataArray">
-      <!-- <h5>{{el.dtTxt.slice(5,10)}}</h5> -->
       <h5>{{el.dayName}}</h5>
-      <h5>{{el.desc}}</h5>
-      <span [innerHTML]="getWeatherImageHtml(el.desc)"></span>
+      <span class="weather-img" [innerHTML]="getWeatherImageHtml(el.desc)"></span>
       <p>
         <span>{{el.tempMax}}&#176;</span>
         <span>&#160;</span>

@@ -10,6 +10,7 @@ let cities =
         { id: 6, name: 'windsor' }
     ];
 
+
 function getWeatherImageHtml(desc: string): any {
     desc = desc.toLowerCase();
 
@@ -26,9 +27,24 @@ function getWeatherImageHtml(desc: string): any {
     }
 }
 
+function getWeatherEmoji(desc: string): any {
+    desc = desc.toLowerCase();
+
+    switch (desc) {
+        case 'rain': { return '☔️'; }
+        case 'clear': { return '☀️'; }
+        case 'clouds': { return '☁️'; }
+        case 'drizzle': { return '💧'; }
+        case 'snow': { return '⛄️'; }
+        case 'atmosphere': { return '💨'; }
+        case 'mist': { return '🌁'; }
+
+        default: { return '☁️'; }
+    }
+}
+
 function getCityName(id: number): string {
     const city = cities.filter(city => city.id == id);
-    console.log(city[0].name);
     
     if (city[0]) {
         return city[0].name;
@@ -37,4 +53,4 @@ function getCityName(id: number): string {
     }
 }
 
-export { cities, getWeatherImageHtml, getCityName };
+export { cities, getWeatherEmoji, getCityName };

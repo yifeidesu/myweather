@@ -3,7 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 
 import { WeatherService } from '../weather.service';
-import { getWeatherImageHtml } from '../cities';
+import { getWeatherEmoji } from '../cities';
 import { DayData } from '../dayData';
 import { getDay, formatTime } from '../dateUtils';
 
@@ -18,7 +18,10 @@ export class CityDetailComponent implements OnInit {
 
   times = [];
   temps = [];
-  humidity = [];
+  humidities = [];
+  winds = [];
+  windsDegree = [];
+
   dayDataArray = [];
 
   datetime = '';
@@ -42,9 +45,9 @@ export class CityDetailComponent implements OnInit {
     this.weatherService.getWeatherForecast(id)
       .subscribe(weatherRes => {
 
-        //console.log(weatherRes);
+        console.log(weatherRes);
         const dtTxt = weatherRes.list[0].dt_txt;
-        this.datetime = getDay(dtTxt) + ' ' + dtTxt.slice(5, 10) + ' - ' + formatTime(dtTxt);
+        this.datetime = getDay(dtTxt) + ' ' + dtTxt.slice(5, 10);
 
         /** rewrite */
         this.weather = weatherRes;
@@ -54,8 +57,13 @@ export class CityDetailComponent implements OnInit {
         weatherRes.list.forEach(element => {
           this.times.push(element.dt_txt);
           this.temps.push(element.main.temp);
-          this.humidity.push(element.main.humidity);
+          this.humidities.push(element.main.humidity);
+          this.winds.push(element.wind.speed);
+          this.windsDegree.push(element.wind.deg);
         });
+
+        console.log(this.winds);
+        
       }
       );
   }
@@ -79,8 +87,6 @@ export class CityDetailComponent implements OnInit {
           element.weather[0].main);
 
         let date = new Date(dt_txt);
-
-        console.log(element.dt_txt);
 
         const time = formatTime(element.dt_txt);
 
@@ -109,7 +115,7 @@ export class CityDetailComponent implements OnInit {
   }
 
   getWeatherImageHtml(desc: string): any {
-    return getWeatherImageHtml(desc);
+    return getWeatherEmoji(desc);
   }
 
   getDay(dt): string {

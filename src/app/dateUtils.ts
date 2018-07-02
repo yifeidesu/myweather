@@ -5,12 +5,12 @@ function getDay(dt): string {
     return days[date.getDay()];
 }
 
+// UTC - 4H = ET
 function formatTime(dt):string {
     const date = new Date(dt);
     let hour = date.getHours();
-    let hourStr = (hour > 12)? (hour.toString() + ' a.m.') :(hour.toString() + ' p.m.');
-    console.log(dt);
-    console.log(hourStr);
+    let hourStr = (hour < 12)? (hour.toString() + ' a.m.') :((hour-12).toString() + ' p.m.');
+  
     return hourStr;
 }
 
