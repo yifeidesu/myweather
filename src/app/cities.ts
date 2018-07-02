@@ -37,6 +37,7 @@ function getWeatherEmoji(desc: string): any {
         case 'drizzle': { return '💧'; }
         case 'snow': { return '⛄️'; }
         case 'atmosphere': { return '💨'; }
+        case 'thunderstorm': { return '⚡️'; }
         case 'mist': { return '🌁'; }
 
         default: { return '☁️'; }
