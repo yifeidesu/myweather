@@ -101,8 +101,6 @@ export class ChartComponent implements OnInit, AfterViewInit {
         btn.classList.add('active');
       });
     });
-    
-    
   }
 
 

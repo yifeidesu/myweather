@@ -55,7 +55,10 @@ export class CityDetailComponent implements OnInit {
 
         // for chart.
         weatherRes.list.forEach(element => {
-          this.times.push(element.dt_txt);
+          // time convert  UTC - 4 = ET
+          const dtUTC = element.dt_txt + '.196Z';
+          //const momentDate = moment(date.toISOString());
+          this.times.push(dtUTC);
           this.temps.push(element.main.temp);
           this.humidities.push(element.main.humidity);
           this.winds.push(element.wind.speed);
@@ -85,10 +88,6 @@ export class CityDetailComponent implements OnInit {
           element.main.temp_max,
           element.main.temp_min,
           element.weather[0].main);
-
-        let date = new Date(dt_txt);
-
-        const time = formatTime(element.dt_txt);
 
         dates.push(dt_txt);
         this.dayDataArray.push(dayData);
